@@ -559,6 +559,12 @@ void accUpdate(void)
         acc.accADCf[axis] = (float)accADC[axis] / acc.dev.acc_1G;
     }
 
+    // calculate gforce
+    {
+        float gforce = calc_length_pythagorean_3D(acc.accADCf[X], acc.accADCf[Y], acc.accADCf[Z]);
+        if (gforce > acc.recentMaxG) acc.recentMaxG = gforce;
+    }
+
     // Before filtering check for clipping and vibration levels
     if (fabsf(acc.accADCf[X]) > ACC_CLIPPING_THRESHOLD_G || fabsf(acc.accADCf[Y]) > ACC_CLIPPING_THRESHOLD_G || fabsf(acc.accADCf[Z]) > ACC_CLIPPING_THRESHOLD_G) {
         acc.isClipped = true;
@@ -602,6 +608,17 @@ void updateAccExtremes(void)
 
     float gforce = calc_length_pythagorean_3D(acc.accADCf[X], acc.accADCf[Y], acc.accADCf[Z]);
     if (gforce > acc.maxG) acc.maxG = gforce;
+}
+
+void updateAccRecentMaxG(void)
+{
+    float gforce = calc_length_pythagorean_3D(acc.accADCf[X], acc.accADCf[Y], acc.accADCf[Z]);
+    if (gforce > acc.recentMaxG) acc.recentMaxG = gforce;
+}
+
+void accResetRecentMaxG(void)
+{
+    acc.recentMaxG = 0.0f;
 }
 
 void accGetVibrationLevels(fpVector3_t *accVibeLevels)

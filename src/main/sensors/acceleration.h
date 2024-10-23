@@ -63,6 +63,7 @@ typedef struct acc_s {
     bool isClipped;
     acc_extremes_t extremes[XYZ_AXIS_COUNT];
     float maxG;
+    float recentMaxG;
 } acc_t;
 
 extern acc_t acc;
@@ -96,3 +97,5 @@ void accInitFilters(void);
 bool accIsHealthy(void);
 bool accGetCalibrationAxisStatus(int axis);
 uint8_t accGetCalibrationAxisFlags(void);
+void updateAccRecentMaxG(void);
+void accResetRecentMaxG(void);

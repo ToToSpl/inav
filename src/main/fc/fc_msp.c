@@ -488,6 +488,14 @@ static bool mspFcProcessOutCommand(uint16_t cmdMSP, sbuf_t *dst, mspPostProcessF
         }
         break;
 
+    case MSP2_INAV_GET_RECENT_MAX_G:
+        {
+            int16_t maxG = (int16_t)lrintf(acc.recentMaxG * 100.0);
+            accResetRecentMaxG();
+            sbufWriteU16(dst, maxG);
+        }
+        break;
+
     case MSP_SERVO:
         sbufWriteData(dst, &servo, MAX_SUPPORTED_SERVOS * 2);
         break;
