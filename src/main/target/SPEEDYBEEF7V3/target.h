@@ -40,6 +40,7 @@
 #define USE_PINIOBOX
 #define PINIO1_PIN                  PC9
 #define PINIO1_FLAGS                PINIO_FLAGS_INVERTED
+#define PINIO2_PIN                  PC0 // 2x Camera switch
 
 #define USE_UART1
 #define UART1_RX_PIN            PA10
@@ -130,12 +131,12 @@
 // *************** ADC *****************************
 #define USE_ADC
 #define ADC_CHANNEL_1_PIN           PC2
-#define ADC_CHANNEL_2_PIN           PC0
+// #define ADC_CHANNEL_2_PIN           PC0
 #define ADC_CHANNEL_3_PIN           PC1
 
 #define VBAT_ADC_CHANNEL            ADC_CHN_1
 #define CURRENT_METER_ADC_CHANNEL   ADC_CHN_3
-#define RSSI_ADC_CHANNEL            ADC_CHN_2
+// #define RSSI_ADC_CHANNEL            ADC_CHN_2
 
 // *************** LED *****************************
 #define USE_LED_STRIP

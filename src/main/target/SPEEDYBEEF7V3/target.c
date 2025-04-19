@@ -41,7 +41,7 @@ timerHardware_t timerHardware[] = {
     DEF_TIM(TIM3, CH2, PB5,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S6 Clash with S2, DSHOT does not work
     DEF_TIM(TIM3, CH3, PB0,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S7
     DEF_TIM(TIM3, CH4, PB1,     TIM_USE_OUTPUT_AUTO, 0, 0),  // S8
-    DEF_TIM(TIM5, CH1, PA0,     TIM_USE_OUTPUT_AUTO, 0, 0),  // Camera Control
+    DEF_TIM(TIM5, CH1, PA0,     TIM_USE_OUTPUT_AUTO, 0, 0),  // Drop servo
 
     DEF_TIM(TIM8, CH3, PC8,  TIM_USE_LED, 0, 0),    // LED
 };

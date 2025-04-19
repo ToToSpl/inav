@@ -28,10 +28,14 @@
 #include "io/serial.h"
 #include "drivers/pwm_mapping.h"
 
+#include "io/piniobox.h"
+
 void targetConfiguration(void)
 {
     serialConfigMutable()->portConfigs[findSerialPortIndexByIdentifier(SERIAL_PORT_USART4)].functionMask = FUNCTION_ESCSERIAL;
     pinioBoxConfigMutable()->permanentId[0] = BOX_PERMANENT_ID_USER1;
+    pinioBoxConfigMutable()->permanentId[1] = BOX_PERMANENT_ID_USER2;
+
     timerOverridesMutable(timer2id(TIM2))->outputMode = OUTPUT_MODE_MOTORS;
     timerOverridesMutable(timer2id(TIM3))->outputMode = OUTPUT_MODE_MOTORS;
     timerOverridesMutable(timer2id(TIM4))->outputMode = OUTPUT_MODE_MOTORS;
