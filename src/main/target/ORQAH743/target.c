@@ -22,6 +22,7 @@
 #include "drivers/pwm_mapping.h"
 #include "drivers/timer.h"
 #include "drivers/bus.h"
+#include "drivers/pinio.h"
 #include "drivers/sensor.h"
 
 
