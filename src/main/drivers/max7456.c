@@ -386,7 +386,7 @@ void max7456Init(const videoSystem_e videoSystem)
         return;
     }
 
-    busSetSpeed(state.dev, BUS_SPEED_STANDARD);
+    busSetSpeed(state.dev, BUS_SPEED_INITIALIZATION);
 
     // force soft reset on Max7456
     busWrite(state.dev, MAX7456ADD_VM0, MAX7456_RESET);
