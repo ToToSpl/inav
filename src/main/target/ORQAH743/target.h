@@ -171,7 +171,8 @@
 // *************** PINIO ***************************
 #define USE_PINIO
 #define USE_PINIOBOX
-#define PINIO1_PIN                  PB1  
+#define PINIO1_PIN                  PB1
+#define PINIO2_PIN                  PD0 // Onboard (FC) Camera Switch
 
 #define CURRENT_METER_SCALE         108
 #define VBAT_SCALE_DEFAULT          943

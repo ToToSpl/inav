@@ -31,7 +31,7 @@ void targetConfiguration(void)
 {
     beeperConfigMutable()->pwmMode = true;
     pinioBoxConfigMutable()->permanentId[0] = BOX_PERMANENT_ID_USER4;
-
+    pinioBoxConfigMutable()->permanentId[1] = BOX_PERMANENT_ID_USER2;
 
     /*
      * UART6 is SerialRX
