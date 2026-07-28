@@ -30,7 +30,7 @@
 void targetConfiguration(void)
 {
     beeperConfigMutable()->pwmMode = true;
-    pinioBoxConfigMutable()->permanentId[0] = BOX_PERMANENT_ID_USER4;
+    pinioBoxConfigMutable()->permanentId[0] = BOX_PERMANENT_ID_USER1;
     pinioBoxConfigMutable()->permanentId[1] = BOX_PERMANENT_ID_USER2;
 
     /*
@@ -38,6 +38,7 @@ void targetConfiguration(void)
      */
     serialConfigMutable()->portConfigs[findSerialPortIndexByIdentifier(SERIAL_PORT_USART6)].functionMask = FUNCTION_RX_SERIAL;
     serialConfigMutable()->portConfigs[findSerialPortIndexByIdentifier(SERIAL_PORT_USART7)].functionMask = FUNCTION_GPS;
+    serialConfigMutable()->portConfigs[findSerialPortIndexByIdentifier(SERIAL_PORT_USART2)].functionMask = FUNCTION_MSP;
 
 
 }

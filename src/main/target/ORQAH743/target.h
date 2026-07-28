@@ -162,16 +162,18 @@
 
 #define ADC_CHANNEL_1_PIN           PC0  //ADC123 VBAT1
 #define ADC_CHANNEL_2_PIN           PC1  //ADC123 CURR1
+#define ADC_CHANNEL_3_PIN           PB0 //RSSI MFC MOT8
 
 #define VBAT_ADC_CHANNEL            ADC_CHN_1
 #define CURRENT_METER_ADC_CHANNEL   ADC_CHN_2
+#define RSSI_ADC_CHANNEL            ADC_CHN_3
 
 #define DEFAULT_FEATURES        (FEATURE_OSD | FEATURE_CURRENT_METER | FEATURE_VBAT | FEATURE_TELEMETRY )
 
 // *************** PINIO ***************************
 #define USE_PINIO
 #define USE_PINIOBOX
-#define PINIO1_PIN                  PB1
+#define PINIO1_PIN                  PB1 // External Camera Switch
 #define PINIO2_PIN                  PD0 // Onboard (FC) Camera Switch
 
 #define CURRENT_METER_SCALE         108
