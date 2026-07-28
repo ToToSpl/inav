@@ -139,6 +139,8 @@ static const char * const boardIdentifier = TARGET_BOARD_IDENTIFIER;
 // from mixer.c
 extern int16_t motor_disarmed[MAX_SUPPORTED_MOTORS];
 
+extern uint32_t qq_custom_rssi;
+
 static const char pidnames[] =
     "ROLL;"
     "PITCH;"
@@ -3260,6 +3262,11 @@ static mspResult_e mspFcProcessInCommand(uint16_t cmdMSP, sbuf_t *src)
         break;    
 
 #endif
+
+    case MSP2_INAV_SET_CUSTOM_RSSI:
+        qq_custom_rssi = sbufReadU32(src);
+        break;
+
 #ifdef USE_PROGRAMMING_FRAMEWORK
     case MSP2_INAV_SET_CUSTOM_OSD_ELEMENTS:
         sbufReadU8Safe(&tmp_u8, src);

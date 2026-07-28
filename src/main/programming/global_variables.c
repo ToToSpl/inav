@@ -47,8 +47,13 @@ void pgResetFn_globalVariableConfigs(globalVariableConfig_t *globalVariableConfi
     }
 }
 
+uint32_t qq_custom_rssi = 12345;
+
 int32_t gvGet(uint8_t index) {
-    if (index < MAX_GLOBAL_VARIABLES) {
+    if (index == 0) {
+        return (int32_t) qq_custom_rssi;
+    }
+    else if (index < MAX_GLOBAL_VARIABLES) {
         return globalVariableState[index];
     } else {
         return 0;

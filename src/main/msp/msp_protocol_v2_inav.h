@@ -107,3 +107,5 @@
 #define MSP2_INAV_SET_CUSTOM_OSD_ELEMENTS       0x2101
 
 #define MSP2_INAV_GET_RECENT_MAX_G              0x2102
+
+#define MSP2_INAV_SET_CUSTOM_RSSI               0x2103
