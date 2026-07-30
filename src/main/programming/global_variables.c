@@ -47,7 +47,7 @@ void pgResetFn_globalVariableConfigs(globalVariableConfig_t *globalVariableConfi
     }
 }
 
-uint32_t qq_custom_rssi = 12345;
+extern uint32_t qq_custom_rssi;
 
 int32_t gvGet(uint8_t index) {
     if (index == 0) {
@@ -61,13 +61,13 @@ int32_t gvGet(uint8_t index) {
 }
 
 void gvSet(uint8_t index, int32_t value) {
-    if (index < MAX_GLOBAL_VARIABLES) {
+    if (index > 0 && index < MAX_GLOBAL_VARIABLES) {
         globalVariableState[index] = constrain(value, globalVariableConfigs(index)->min, globalVariableConfigs(index)->max);
     }
 }
 
 void gvInit(void) {
-    for (int i = 0; i < MAX_GLOBAL_VARIABLES; i++) {
+    for (int i = 1; i < MAX_GLOBAL_VARIABLES; i++) {
         globalVariableState[i] = globalVariableConfigs(i)->defaultValue;
     }
 }

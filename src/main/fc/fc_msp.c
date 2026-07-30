@@ -139,7 +139,7 @@ static const char * const boardIdentifier = TARGET_BOARD_IDENTIFIER;
 // from mixer.c
 extern int16_t motor_disarmed[MAX_SUPPORTED_MOTORS];
 
-extern uint32_t qq_custom_rssi;
+uint32_t qq_custom_rssi = 12345;
 
 static const char pidnames[] =
     "ROLL;"
@@ -3263,10 +3263,6 @@ static mspResult_e mspFcProcessInCommand(uint16_t cmdMSP, sbuf_t *src)
 
 #endif
 
-    case MSP2_INAV_SET_CUSTOM_RSSI:
-        qq_custom_rssi = sbufReadU32(src);
-        break;
-
 #ifdef USE_PROGRAMMING_FRAMEWORK
     case MSP2_INAV_SET_CUSTOM_OSD_ELEMENTS:
         sbufReadU8Safe(&tmp_u8, src);
@@ -3286,6 +3282,11 @@ static mspResult_e mspFcProcessInCommand(uint16_t cmdMSP, sbuf_t *src)
         }
 
         break;
+
+    case MSP2_INAV_SET_CUSTOM_RSSI:
+        qq_custom_rssi = sbufReadU32(src);
+        break;
+
 
 
     default:
@@ -4042,7 +4043,7 @@ mspResult_e mspFcProcessCommand(mspPacket_t *cmd, mspPacket_t *reply, mspPostPro
     reply->cmd = cmd->cmd;
 
     if (MSP2_IS_SENSOR_MESSAGE(cmdMSP)) {
-        ret = mspProcessSensorCommand(cmdMSP, src);
+    ret = mspProcessSensorCommand(cmdMSP, src);
     } else if (mspFcProcessOutCommand(cmdMSP, dst, mspPostProcessFn)) {
         ret = MSP_RESULT_ACK;
     } else if (cmdMSP == MSP_SET_PASSTHROUGH) {
